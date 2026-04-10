@@ -9,14 +9,14 @@
     </listAttribute>
     <mapAttribute key="org.eclipse.debug.core.environmentVariables">
         <mapEntry key="GRB_LICENSE_FILE" value="/home/mkratz/gurobi.lic"/>
-        <mapEntry key="GUROBI_HOME" value="/opt/gurobi1202/linux64/"/>
-        <mapEntry key="LD_LIBRARY_PATH" value="/opt/gurobi1202/linux64/lib/:/opt/ibm/ILOG/CPLEX_Studio2212/cplex/bin/x86-64_linux/"/>
-        <mapEntry key="PATH" value="/opt/gurobi1202/linux64/bin/:/opt/ibm/ILOG/CPLEX_Studio2212/cplex/bin/x86-64_linux/:$PATH"/>
+        <mapEntry key="GUROBI_HOME" value="/opt/gurobi1301/linux64/"/>
+        <mapEntry key="LD_LIBRARY_PATH" value="/opt/gurobi1301/linux64/lib/:/opt/ibm/ILOG/CPLEX_Studio2212/cplex/bin/x86-64_linux/"/>
+        <mapEntry key="PATH" value="/opt/gurobi1301/linux64/bin/:/opt/ibm/ILOG/CPLEX_Studio2212/cplex/bin/x86-64_linux/:$PATH"/>
     </mapAttribute>
     <stringAttribute key="org.eclipse.jdt.junit.CONTAINER" value="=test.suite.gips"/>
     <booleanAttribute key="org.eclipse.jdt.junit.KEEPRUNNING_ATTR" value="false"/>
     <stringAttribute key="org.eclipse.jdt.junit.TESTNAME" value=""/>
-    <stringAttribute key="org.eclipse.jdt.junit.TEST_KIND" value="org.eclipse.jdt.junit.loader.junit5"/>
+    <stringAttribute key="org.eclipse.jdt.junit.TEST_KIND" value="org.eclipse.jdt.junit.loader.junit6"/>
     <booleanAttribute key="org.eclipse.jdt.launching.ATTR_ATTR_USE_ARGFILE" value="false"/>
     <booleanAttribute key="org.eclipse.jdt.launching.ATTR_SHOW_CODEDETAILS_IN_EXCEPTION_MESSAGES" value="true"/>
     <booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_CLASSPATH_ONLY_JAR" value="false"/>

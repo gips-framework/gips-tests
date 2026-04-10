@@ -13,6 +13,7 @@ import importmodel.Guest;
 import importmodel.Host;
 import importmodel.ImportmodelFactory;
 import importmodel.Root;
+import importmodel.SpecialGuest;
 
 public class ImportsModelGenerator {
 
@@ -52,18 +53,29 @@ public class ImportsModelGenerator {
 		return root;
 	}
 
-	public void genGuest(final String name, final int demand) {
+	public Guest genGuest(final String name, final int demand) {
 		final Guest g = ImportmodelFactory.eINSTANCE.createGuest();
 		g.setName(name);
 		g.setDemand(demand);
 		root.getElements().add(g);
+		return g;
 	}
 
-	public void genHost(final String name, final int resource) {
+	public SpecialGuest genSpecialGuest(final String name, final int demand, final int celebrityRating) {
+		final SpecialGuest g = ImportmodelFactory.eINSTANCE.createSpecialGuest();
+		g.setName(name);
+		g.setDemand(demand);
+		g.setCelebrityRating(celebrityRating);
+		root.getElements().add(g);
+		return g;
+	}
+
+	public Host genHost(final String name, final int resource) {
 		final Host h = ImportmodelFactory.eINSTANCE.createHost();
 		h.setName(name);
 		h.setResource(resource);
 		root.getElements().add(h);
+		return h;
 	}
 
 	public Element getElement(final String name) {
@@ -73,6 +85,12 @@ public class ImportsModelGenerator {
 			}
 		}
 		return null;
+	}
+
+	public void addGuestToHost(String guestName, String hostName) {
+		Guest g = (Guest) getElement(guestName);
+		Host h = (Host) getElement(hostName);
+		h.getGuests().add(g);
 	}
 
 }
