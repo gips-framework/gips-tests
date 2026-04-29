@@ -1,0 +1,75 @@
+package "gipsl.all.build.implication.shortcut"
+import "platform:/resource/gipsl.all.build.model/model/Model.ecore"
+
+config {
+	solver := GUROBI;
+	timeLimit := true [value := 10.0];
+	randomSeed := true [value := 0];
+	presolve := auto;
+	debugOutput := false;
+}
+
+rule mapVnode {
+	root: Root {
+		-containers -> substrateContainer
+		-containers -> virtualContainer
+	}
+
+	substrateContainer: SubstrateContainer {
+		-substrateNodes -> snode
+	}
+
+	virtualContainer: VirtualContainer {
+		-virtualNodes -> vnode
+	}
+
+	snode: SubstrateResourceNode
+
+	vnode: VirtualResourceNode {
+		++ -host -> snode
+	}
+}
+
+//
+// GIPSL starts here!
+//
+
+mapping n2n to mapVnode {
+	var y : EBoolean
+};
+
+//
+// Helper constraints
+//
+
+// Ensure no virtual node with resource demand != 7 is selected
+constraint {
+	mappings.n2n->filter(element.nodes.vnode.resourceDemand != 7)->sum(element.value) == 0
+}
+
+// Enure every virtual constraint with resource demand 7 is selected
+constraint with VirtualResourceNode {
+	context.resourceDemand == 7
+	=>
+	mappings.n2n->filter(element.nodes.vnode == context)->sum(element.value) == 1
+}
+
+// Implication
+// If mapping is selected, its y variable must also be selected
+constraint with n2n {
+	[mappings.n2n->filter( //
+		element.nodes.snode == context.nodes.snode //
+		& element.nodes.vnode == context.nodes.vnode //
+	)->sum(element.value) == 1]
+	==>
+	[context.variables.y == 1]
+}
+
+// Minimization should (but must not) ensure y is not selected
+function nObj with n2n {
+	context.value + 0.1 * context.variables.y
+}
+
+objective : min {
+	functions.nObj
+}
