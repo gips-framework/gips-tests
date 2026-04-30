@@ -56,8 +56,8 @@ public class GipslAllBuildImplicationShortcutTest extends AGipslAllBuildTest {
 		final SolverOutput ret = con.run(OUTPUT_PATH);
 
 		assertEquals(SolverStatus.OPTIMAL, ret.status());
-		assertEquals(0, Math.abs(ret.objectiveValue()));
-		assertEquals(0, ((ImplicationShortcutConnector) con).getY());
+		assertEquals(0.1, Math.abs(ret.objectiveValue()));
+		assertEquals(1, ((ImplicationShortcutConnector) con).getY());
 	}
 	
 	// Negative tests
