@@ -42,14 +42,21 @@ mapping n2n to mapVnode {
 // Helper constraints
 //
 
-// Ensure no virtual node with resource demand != 7 is selected
+// Ensure no virtual node with resource demand != {5,6,7,4} is selected
 constraint {
-	mappings.n2n->filter(element.nodes.vnode.resourceDemand != 7)->sum(element.value) == 0
+	mappings.n2n->filter(element.nodes.vnode.resourceDemand <= 4)->sum(element.value)
+	+
+	mappings.n2n->filter(element.nodes.vnode.resourceDemand > 7)->sum(element.value)
+	== 0
 }
 
-// Ensure every virtual constraint with resource demand 7 is selected
+// Ensure every virtual constraint with resource demand 5, 6, 7 is selected
 constraint with VirtualResourceNode {
-	context.resourceDemand == 7
+	[
+		context.resourceDemand == 5
+		| context.resourceDemand == 6
+		| context.resourceDemand == 7
+	]
 	=>
 	mappings.n2n->filter(element.nodes.vnode == context)->sum(element.value) == 1
 }
@@ -57,10 +64,19 @@ constraint with VirtualResourceNode {
 // Implication
 // If and only if mapping is selected, its y variable must also be selected
 constraint with n2n {
-	[mappings.n2n->filter( //
-		element.nodes.snode == context.nodes.snode //
-		& element.nodes.vnode == context.nodes.vnode //
-	)->sum(element.value) == 1]
+	[
+		mappings.n2n->filter( //
+			element.nodes.snode == context.nodes.snode //
+			& element.nodes.vnode == context.nodes.vnode //
+			& element.nodes.vnode.resourceDemand != 4 //
+		)->sum(element.value) == 1
+		|
+		mappings.n2n->filter( //
+			element.nodes.snode == context.nodes.snode //
+			& element.nodes.vnode == context.nodes.vnode //
+			& element.nodes.vnode.resourceDemand == 4 //
+		)->sum(element.value) == 1
+	]
 	<==>
 	[context.variables.y == 1]
 }

@@ -58,6 +58,18 @@ public class GipslAllBuildEquivalenceShortcutTest extends AGipslAllBuildTest {
 		assertEquals(SolverStatus.OPTIMAL, ret.status());
 		assertEquals(0, Math.abs(ret.objectiveValue()));
 	}
+	
+	@Test
+	public void testMap4to1() {
+		gen.genSubstrateNode("s1", 1);
+		gen.genVirtualNode("v1", 4);
+		callableSetUp();
+
+		final SolverOutput ret = con.run(OUTPUT_PATH);
+
+		assertEquals(SolverStatus.OPTIMAL, ret.status());
+		assertEquals(0, Math.abs(ret.objectiveValue()));
+	}
 
 	// Negative tests
 
