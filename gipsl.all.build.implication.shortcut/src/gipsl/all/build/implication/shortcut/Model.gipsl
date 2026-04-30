@@ -54,7 +54,7 @@ constraint {
 	mappings.n2n->filter(element.nodes.vnode.resourceDemand != 7)->sum(element.value) == 0
 }
 
-// Enure every virtual constraint with resource demand 7 is selected
+// Ensure every virtual constraint with resource demand 7 is selected
 constraint with VirtualResourceNode {
 	context.resourceDemand == 7
 	=>
