@@ -33,6 +33,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VirtualResourceNode" eSuperTypes="#//VirtualNode">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="resourceDemand" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dummyConstant" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SubstrateResourceNode" eSuperTypes="#//SubstrateNode">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="resourceAmountTotal" lowerBound="1"
