@@ -31,8 +31,11 @@ public class GipslAllBuildImplicationShortcutTest extends AGipslAllBuildTest {
 		assertEquals(SolverStatus.OPTIMAL, ret.status());
 		assertEquals(1.1, Math.abs(ret.objectiveValue()));
 		assertEquals(1, ((ImplicationShortcutConnector) con).getY());
+
+		// 1 + 8 + 1 + 0
+		assertEquals(10, ((ImplicationShortcutConnector) con).getNumberOfConstraints());
 	}
-	
+
 	@Test
 	public void testMap2to1() {
 		gen.genSubstrateNode("s1", 2);
@@ -45,8 +48,11 @@ public class GipslAllBuildImplicationShortcutTest extends AGipslAllBuildTest {
 		assertEquals(SolverStatus.OPTIMAL, ret.status());
 		assertEquals(1.1, Math.abs(ret.objectiveValue()));
 		assertEquals(1, ((ImplicationShortcutConnector) con).getY());
+
+		// 1 + 8*2 + 2 + 0
+		assertEquals(19, ((ImplicationShortcutConnector) con).getNumberOfConstraints());
 	}
-	
+
 	@Test
 	public void testMap8to42() {
 		gen.genSubstrateNode("s1", 42);
@@ -59,7 +65,7 @@ public class GipslAllBuildImplicationShortcutTest extends AGipslAllBuildTest {
 		assertEquals(0.1, Math.abs(ret.objectiveValue()));
 		assertEquals(1, ((ImplicationShortcutConnector) con).getY());
 	}
-	
+
 	// Negative tests
 
 	@Test

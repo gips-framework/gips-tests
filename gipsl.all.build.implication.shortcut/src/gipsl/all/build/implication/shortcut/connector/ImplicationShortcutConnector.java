@@ -36,4 +36,13 @@ public class ImplicationShortcutConnector extends AConnector {
 		return selectedMappingsWithY1.get(0).getAdditionalVariables().get("y").getValue().intValue();
 	}
 
+	public int getNumberOfConstraints() {
+		int cnstrs = 0;
+		for (final var constraint : api.getConstraints().values()) {
+			cnstrs += constraint.getConstraints().size();
+			cnstrs += constraint.getAdditionalConstraints().size();
+		}
+		return cnstrs;
+	}
+
 }
