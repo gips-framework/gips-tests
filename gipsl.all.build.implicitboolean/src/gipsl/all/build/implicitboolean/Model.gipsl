@@ -40,6 +40,7 @@ mapping n2n to mapVnode;
 
 type VirtualResourceNode {
 	var s : EBoolean
+	var x : EBoolean
 };
 
 // At most one mapping must be chosen per virtual resource node
@@ -52,6 +53,10 @@ constraint with VirtualResourceNode {
 	<=>
 	// implicit Boolean
 	context.variables.s
+}
+
+constraint with VirtualResourceNode {
+	context.dummyConstant == context.variables.x
 }
 
 function selectedVnode with n2n {

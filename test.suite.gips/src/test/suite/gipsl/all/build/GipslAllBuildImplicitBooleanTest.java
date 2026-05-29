@@ -33,6 +33,7 @@ public class GipslAllBuildImplicitBooleanTest extends AGipslAllBuildTest {
 		assertEquals(1, ret.objectiveValue());
 
 		assertEquals(1, ((ImplicitBooleanConnector) con).getVirtualResourceNodeS("v1"));
+		assertEquals(0, ((ImplicitBooleanConnector) con).getVirtualResourceNodeX("v1"));
 	}
 
 	@Test
@@ -49,7 +50,9 @@ public class GipslAllBuildImplicitBooleanTest extends AGipslAllBuildTest {
 		assertEquals(2, ret.objectiveValue());
 
 		assertEquals(1, ((ImplicitBooleanConnector) con).getVirtualResourceNodeS("v1"));
+		assertEquals(0, ((ImplicitBooleanConnector) con).getVirtualResourceNodeX("v1"));
 		assertEquals(1, ((ImplicitBooleanConnector) con).getVirtualResourceNodeS("v2"));
+		assertEquals(0, ((ImplicitBooleanConnector) con).getVirtualResourceNodeX("v2"));
 	}
 
 	@Test
@@ -66,7 +69,26 @@ public class GipslAllBuildImplicitBooleanTest extends AGipslAllBuildTest {
 		assertEquals(1, ret.objectiveValue());
 
 		assertEquals(0, ((ImplicitBooleanConnector) con).getVirtualResourceNodeS("v1"));
+		assertEquals(0, ((ImplicitBooleanConnector) con).getVirtualResourceNodeX("v1"));
 		assertEquals(1, ((ImplicitBooleanConnector) con).getVirtualResourceNodeS("v2"));
+		assertEquals(0, ((ImplicitBooleanConnector) con).getVirtualResourceNodeX("v2"));
+	}
+
+	@Test
+	public void testMap1to1Xtrue() {
+		gen.genSubstrateNode("s1", 10);
+		gen.genVirtualNode("v1", 1);
+		gen.getVirtualResourceNode("v1").setDummyConstant(true);
+		callableSetUp();
+
+		final SolverOutput ret = con.run(OUTPUT_PATH);
+
+		assertEquals(SolverStatus.OPTIMAL, ret.status());
+		// All mappings must be chosen, according to the objective function
+		assertEquals(1, ret.objectiveValue());
+
+		assertEquals(1, ((ImplicitBooleanConnector) con).getVirtualResourceNodeS("v1"));
+		assertEquals(1, ((ImplicitBooleanConnector) con).getVirtualResourceNodeX("v1"));
 	}
 
 	// Negative tests
@@ -84,6 +106,7 @@ public class GipslAllBuildImplicitBooleanTest extends AGipslAllBuildTest {
 		assertEquals(0, Math.abs(ret.objectiveValue()));
 
 		assertEquals(0, ((ImplicitBooleanConnector) con).getVirtualResourceNodeS("v1"));
+		assertEquals(0, ((ImplicitBooleanConnector) con).getVirtualResourceNodeX("v1"));
 	}
 
 	@Test
@@ -100,7 +123,9 @@ public class GipslAllBuildImplicitBooleanTest extends AGipslAllBuildTest {
 		assertEquals(0, Math.abs(ret.objectiveValue()));
 
 		assertEquals(0, ((ImplicitBooleanConnector) con).getVirtualResourceNodeS("v1"));
+		assertEquals(0, ((ImplicitBooleanConnector) con).getVirtualResourceNodeX("v1"));
 		assertEquals(0, ((ImplicitBooleanConnector) con).getVirtualResourceNodeS("v2"));
+		assertEquals(0, ((ImplicitBooleanConnector) con).getVirtualResourceNodeX("v2"));
 	}
 
 	@Override

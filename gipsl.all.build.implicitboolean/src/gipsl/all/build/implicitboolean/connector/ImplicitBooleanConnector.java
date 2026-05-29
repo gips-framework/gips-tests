@@ -27,13 +27,23 @@ public class ImplicitBooleanConnector extends AConnector {
 
 	public int getVirtualResourceNodeS(final String name) {
 		Objects.requireNonNull(name);
+		return getVirtualResourceNode("s", name);
+	}
 
+	public int getVirtualResourceNodeX(final String name) {
+		Objects.requireNonNull(name);
+		return getVirtualResourceNode("x", name);
+	}
+
+	private int getVirtualResourceNode(final String var, final String name) {
+		Objects.requireNonNull(var);
+		Objects.requireNonNull(name);
 		final var t = api.getTypeExtensions()
 				.get("platform:/resource/gipsl.all.build.model/model/Model.ecore/VirtualResourceNode");
 
 		for (final var e : t.getExtensions()) {
 			if (((VirtualResourceNode) e.getContext()).getName().equals(name)) {
-				return (int) e.getVariables().get("s").getValue();
+				return (int) e.getVariables().get(var).getValue();
 			}
 		}
 		throw new UnsupportedOperationException();
