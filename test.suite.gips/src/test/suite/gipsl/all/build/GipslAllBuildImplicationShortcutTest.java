@@ -64,6 +64,9 @@ public class GipslAllBuildImplicationShortcutTest extends AGipslAllBuildTest {
 		assertEquals(SolverStatus.OPTIMAL, ret.status());
 		assertEquals(0.1, Math.abs(ret.objectiveValue()));
 		assertEquals(1, ((ImplicationShortcutConnector) con).getY());
+
+		// 1 + 8 + 1 + 1
+		assertEquals(11, ((ImplicationShortcutConnector) con).getNumberOfConstraints());
 	}
 
 	// Negative tests
@@ -77,6 +80,9 @@ public class GipslAllBuildImplicationShortcutTest extends AGipslAllBuildTest {
 
 		assertEquals(SolverStatus.OPTIMAL, ret.status());
 		assertEquals(0, Math.abs(ret.objectiveValue()));
+
+		// 1 + 0 + 0 + 0
+		assertEquals(1, ((ImplicationShortcutConnector) con).getNumberOfConstraints());
 	}
 
 	@Test
@@ -88,6 +94,9 @@ public class GipslAllBuildImplicationShortcutTest extends AGipslAllBuildTest {
 
 		assertEquals(SolverStatus.OPTIMAL, ret.status());
 		assertEquals(0, Math.abs(ret.objectiveValue()));
+
+		// 1 + 6 + 0 + 0
+		assertEquals(7, ((ImplicationShortcutConnector) con).getNumberOfConstraints());
 	}
 
 	@Override
