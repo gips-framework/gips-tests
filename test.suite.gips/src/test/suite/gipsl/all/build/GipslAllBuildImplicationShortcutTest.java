@@ -33,7 +33,7 @@ public class GipslAllBuildImplicationShortcutTest extends AGipslAllBuildTest {
 		assertEquals(1, ((ImplicationShortcutConnector) con).getY());
 
 		// 1 + 8 + 1 + 0
-		assertEquals(10, ((ImplicationShortcutConnector) con).getNumberOfConstraints());
+		assertEquals(10, con.getNumberOfConstraints());
 	}
 
 	@Test
@@ -50,7 +50,7 @@ public class GipslAllBuildImplicationShortcutTest extends AGipslAllBuildTest {
 		assertEquals(1, ((ImplicationShortcutConnector) con).getY());
 
 		// 1 + 8*2 + 2 + 0
-		assertEquals(19, ((ImplicationShortcutConnector) con).getNumberOfConstraints());
+		assertEquals(19, con.getNumberOfConstraints());
 	}
 
 	@Test
@@ -66,7 +66,7 @@ public class GipslAllBuildImplicationShortcutTest extends AGipslAllBuildTest {
 		assertEquals(1, ((ImplicationShortcutConnector) con).getY());
 
 		// 1 + 8 + 1 + 1
-		assertEquals(11, ((ImplicationShortcutConnector) con).getNumberOfConstraints());
+		assertEquals(11, con.getNumberOfConstraints());
 	}
 
 	// Negative tests
@@ -82,7 +82,7 @@ public class GipslAllBuildImplicationShortcutTest extends AGipslAllBuildTest {
 		assertEquals(0, Math.abs(ret.objectiveValue()));
 
 		// 1 + 0 + 0 + 0
-		assertEquals(1, ((ImplicationShortcutConnector) con).getNumberOfConstraints());
+		assertEquals(1, con.getNumberOfConstraints());
 	}
 
 	@Test
@@ -96,7 +96,7 @@ public class GipslAllBuildImplicationShortcutTest extends AGipslAllBuildTest {
 		assertEquals(0, Math.abs(ret.objectiveValue()));
 
 		// 1 + 6 + 0 + 0
-		assertEquals(7, ((ImplicationShortcutConnector) con).getNumberOfConstraints());
+		assertEquals(7, con.getNumberOfConstraints());
 	}
 
 	@Override

@@ -33,4 +33,13 @@ public abstract class AConnector {
 		}
 	}
 
+	public int getNumberOfConstraints() {
+		int cnstrs = 0;
+		for (final var constraint : api.getConstraints().values()) {
+			cnstrs += constraint.getConstraints().size();
+			cnstrs += constraint.getAdditionalConstraints().size();
+		}
+		return cnstrs;
+	}
+
 }
