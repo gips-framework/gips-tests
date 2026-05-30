@@ -31,6 +31,9 @@ public class GipslAllBuildEquivalenceBShortcutTest extends AGipslAllBuildTest {
 		assertEquals(SolverStatus.OPTIMAL, ret.status());
 		assertEquals(1, ret.objectiveValue());
 		assertEquals(1, ((EquivalenceBShortcutConnector) con).getY());
+
+		// 1 + 24 + 1*1 + 1*2
+		assertEquals(28, con.getNumberOfConstraints());
 	}
 
 	@Test
@@ -45,6 +48,9 @@ public class GipslAllBuildEquivalenceBShortcutTest extends AGipslAllBuildTest {
 		assertEquals(SolverStatus.OPTIMAL, ret.status());
 		assertEquals(1, ret.objectiveValue());
 		assertEquals(1, ((EquivalenceBShortcutConnector) con).getY());
+
+		// 1 + 2*24 + 2*1 + 2*2
+		assertEquals(55, con.getNumberOfConstraints());
 	}
 
 	@Test
@@ -57,6 +63,9 @@ public class GipslAllBuildEquivalenceBShortcutTest extends AGipslAllBuildTest {
 
 		assertEquals(SolverStatus.OPTIMAL, ret.status());
 		assertEquals(0, Math.abs(ret.objectiveValue()));
+
+		// 1 + 24 + 1*1 + 1*2
+		assertEquals(28, con.getNumberOfConstraints());
 	}
 
 	@Test
@@ -70,6 +79,9 @@ public class GipslAllBuildEquivalenceBShortcutTest extends AGipslAllBuildTest {
 		assertEquals(SolverStatus.OPTIMAL, ret.status());
 		assertEquals(1, Math.abs(ret.objectiveValue()));
 		assertEquals(1, ((EquivalenceBShortcutConnector) con).getY());
+
+		// 1 + 24 + 1*1 + 1*2
+		assertEquals(28, con.getNumberOfConstraints());
 	}
 
 	// Negative tests
