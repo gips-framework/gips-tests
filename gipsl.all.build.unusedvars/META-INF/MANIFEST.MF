@@ -4,7 +4,8 @@ Bundle-ManifestVersion: 2
 Bundle-Name: gips.ilp.unusedvariables
 Bundle-Vendor: My Company
 Bundle-Version: 1.0.0.qualifier
-Export-Package: gipsl.all.build.unusedvars.connector
+Export-Package: gipsl.all.build.unusedvars.api.gips,
+ gipsl.all.build.unusedvars.connector
 Bundle-SymbolicName: gipsl.all.build.unusedvars;singleton:=true
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-21

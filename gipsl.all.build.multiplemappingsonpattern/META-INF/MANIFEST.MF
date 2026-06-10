@@ -4,7 +4,8 @@ Bundle-ManifestVersion: 2
 Bundle-Name: gipsl.all.build.multiplemappingsonpattern
 Bundle-Vendor: My Company
 Bundle-Version: 1.0.0.qualifier
-Export-Package: gipsl.all.build.multiplemappingsonpattern.connector
+Export-Package: gipsl.all.build.multiplemappingsonpattern.api.gips,
+ gipsl.all.build.multiplemappingsonpattern.connector
 Bundle-SymbolicName: gipsl.all.build.multiplemappingsonpattern; singleton:=true
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-21

@@ -4,7 +4,8 @@ Bundle-ManifestVersion: 2
 Bundle-Name: gipsl.all.build.varnamebug
 Bundle-Vendor: My Company
 Bundle-Version: 1.0.0.qualifier
-Export-Package: gipsl.all.build.varnamebug.connector
+Export-Package: gipsl.all.build.varnamebug.api.gips.mapping,
+ gipsl.all.build.varnamebug.connector
 Import-Package: test.suite.gips.utils
 Bundle-SymbolicName: gipsl.all.build.varnamebug; singleton:=true
 Bundle-ActivationPolicy: lazy

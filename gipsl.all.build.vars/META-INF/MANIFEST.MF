@@ -4,7 +4,8 @@ Bundle-ManifestVersion: 2
 Bundle-Name: gipsl.all.build.vars
 Bundle-Vendor: My Company
 Bundle-Version: 1.0.0.qualifier
-Export-Package: gipsl.all.build.vars.connector
+Export-Package: gipsl.all.build.vars.api.gips.mapping,
+ gipsl.all.build.vars.connector
 Bundle-SymbolicName: gipsl.all.build.vars; singleton:=true
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-21
