@@ -4,7 +4,9 @@ Bundle-ManifestVersion: 2
 Bundle-Name: gipsl.imports.selecttype
 Bundle-Vendor: My Company
 Bundle-Version: 1.0.0.qualifier
-Export-Package: gipsl.imports.selecttype.connector
+Export-Package: gipsl.imports.selecttype.api.gips,
+ gipsl.imports.selecttype.api.gips.types,
+ gipsl.imports.selecttype.connector
 Require-Bundle: org.emoflon.ibex.common;bundle-version="1.0.0",
  org.emoflon.ibex.gt;bundle-version="1.0.0",
  org.emoflon.gips.core;bundle-version="1.5.0",
