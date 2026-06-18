@@ -4,7 +4,9 @@ Bundle-ManifestVersion: 2
 Bundle-Name: gipsl.all.build.typeextension
 Bundle-Vendor: My Company
 Bundle-Version: 1.0.0.qualifier
-Export-Package: gipsl.all.build.typeextension.connector
+Export-Package: gipsl.all.build.typeextension.api.gips,
+ gipsl.all.build.typeextension.api.gips.types,
+ gipsl.all.build.typeextension.connector
 Require-Bundle: org.emoflon.ibex.common;bundle-version="1.0.0",
  org.emoflon.ibex.gt;bundle-version="1.0.0",
  org.emoflon.gips.core;bundle-version="1.5.0",

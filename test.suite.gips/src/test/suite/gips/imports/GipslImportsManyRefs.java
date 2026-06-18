@@ -9,6 +9,7 @@ import org.emoflon.gips.core.milp.SolverStatus;
 import org.junit.jupiter.api.Test;
 
 import gipsl.imports.manyrefs.api.gips.ManyrefsGipsAPI;
+import gipsl.imports.manyrefs.api.gips.types.TypeHostExtender;
 import gipsl.imports.manyrefs.api.gips.types.TypeHostExtension;
 import gipsl.imports.manyrefs.connector.ManyRefsConnector;
 
